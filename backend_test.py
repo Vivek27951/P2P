@@ -4,6 +4,7 @@ import time
 import random
 import string
 from datetime import datetime, timedelta
+import os
 
 # Base URL for API
 BASE_URL = "http://localhost:8001"
