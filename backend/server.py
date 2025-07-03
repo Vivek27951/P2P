@@ -229,6 +229,13 @@ async def get_items(
     
     return [ItemResponse(**item) for item in items]
 
+@app.get("/api/items/my", response_model=List[ItemResponse])
+async def get_my_items(
+    current_user: dict = Depends(get_current_active_user)
+):
+    items = await items_collection.find({"owner_id": current_user["id"]}).to_list(length=None)
+    return [ItemResponse(**item) for item in items]
+
 @app.get("/api/items/{item_id}", response_model=ItemResponse)
 async def get_item(item_id: str):
     item = await items_collection.find_one({"id": item_id})
