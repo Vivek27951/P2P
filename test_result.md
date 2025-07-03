@@ -170,15 +170,18 @@ backend:
 
   - task: "Items - Get User's Items"
     implemented: true
-    working: false
+    working: true
     file: "/app/backend/server.py"
-    stuck_count: 1
+    stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: false
         agent: "testing"
         comment: "Issue with route order. The /api/items/my endpoint is being caught by the /api/items/{item_id} endpoint, causing a 404 error."
+      - working: true
+        agent: "testing"
+        comment: "Fixed the route order issue by moving the /api/items/my endpoint before the /api/items/{item_id} endpoint. Now working correctly."
 
   - task: "Bookings - Create Booking"
     implemented: true
