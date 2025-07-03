@@ -5,8 +5,8 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from decouple import config
-from .database import users_collection
-from .models import UserResponse, TokenData
+from database import users_collection
+from models import UserResponse, TokenData
 import uuid
 
 # Security configurations
