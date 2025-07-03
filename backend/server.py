@@ -287,13 +287,6 @@ async def delete_item(
     await items_collection.delete_one({"id": item_id})
     return {"message": "Item deleted successfully"}
 
-@app.get("/api/items/my", response_model=List[ItemResponse])
-async def get_my_items(
-    current_user: dict = Depends(get_current_active_user)
-):
-    items = await items_collection.find({"owner_id": current_user["id"]}).to_list(length=None)
-    return [ItemResponse(**item) for item in items]
-
 # Booking endpoints
 @app.post("/api/bookings", response_model=BookingResponse)
 async def create_booking(
