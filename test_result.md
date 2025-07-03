@@ -68,3 +68,181 @@ When testing this application:
 - Created proper project structure with contexts and components
 - Implemented comprehensive authentication system
 - Set up responsive design with Tailwind CSS
+
+## Backend API Test Results
+
+backend:
+  - task: "Authentication - User Registration"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested user registration endpoint. Returns proper token and user data."
+
+  - task: "Authentication - User Login"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested user login endpoint. Returns proper token and user data."
+
+  - task: "Authentication - Get Current User"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested get current user endpoint. Returns proper user data when authenticated."
+
+  - task: "Authentication - Update Profile"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested profile update endpoint. Updates user profile data correctly."
+
+  - task: "Items - Create Item"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested item creation endpoint. Creates items with proper data and owner association."
+
+  - task: "Items - Get All Items"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested get all items endpoint. Returns list of available items."
+
+  - task: "Items - Get Single Item"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested get single item endpoint. Returns item details by ID."
+
+  - task: "Items - Update Item"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested item update endpoint. Updates item details correctly."
+
+  - task: "Items - Get User's Items"
+    implemented: true
+    working: false
+    file: "/app/backend/server.py"
+    stuck_count: 1
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "testing"
+        comment: "Issue with route order. The /api/items/my endpoint is being caught by the /api/items/{item_id} endpoint, causing a 404 error."
+
+  - task: "Bookings - Create Booking"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested booking creation endpoint. Creates bookings with proper data and associations."
+
+  - task: "Bookings - Get User's Bookings"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested get user's bookings endpoint. Returns bookings for both renter and item owner."
+
+  - task: "Bookings - Update Booking Status"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested booking status update endpoint. Updates booking status correctly."
+
+frontend:
+  - task: "Frontend Testing"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Frontend testing not performed as per instructions."
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Items - Get User's Items"
+  stuck_tasks:
+    - "Items - Get User's Items"
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Completed backend API testing. All endpoints are working except for 'Get User's Items' which has a route order issue. The /api/items/my endpoint is being caught by the /api/items/{item_id} endpoint, causing a 404 error. This can be fixed by moving the /api/items/my route definition before the /api/items/{item_id} route in server.py."
