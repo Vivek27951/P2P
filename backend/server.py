@@ -7,18 +7,18 @@ import json
 import uuid
 from math import radians, cos, sin, asin, sqrt
 
-from database import (
+from backend.database import (
     users_collection, items_collection, bookings_collection, 
     reviews_collection, messages_collection, payments_collection,
     create_indexes
 )
-from models import (
+from backend.models import (
     UserCreate, UserResponse, UserUpdate, LoginRequest, Token,
     ItemCreate, ItemResponse, ItemUpdate, BookingCreate, BookingResponse, BookingUpdate,
     ReviewCreate, ReviewResponse, MessageCreate, MessageResponse,
     PaymentCreate, PaymentResponse, ItemCategory, BookingStatus
 )
-from auth import (
+from backend.auth import (
     get_password_hash, authenticate_user, create_access_token, 
     get_current_user, get_current_active_user, create_user_id
 )
